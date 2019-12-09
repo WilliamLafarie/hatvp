@@ -25,7 +25,7 @@ venv\Scripts\activate
 
 #Install librairies from requirements.txt
 pip install -r requirements.txt
-
+```
 
 
 ## License
