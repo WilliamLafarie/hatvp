@@ -2,17 +2,17 @@ from django.db import models
 
 # Create your models here.
 
-class Info_generales(models.Model):
+class Informations_generales(models.Model):
     representants_id = models.IntegerField(primary_key=True)
     adresse = models.CharField(max_length=200)
     code_postal = models.CharField(max_length=200)
     derniere_publication_activite = models.CharField(max_length=200) #A CHANGER EN DATE
     date_premiere_publication = models.CharField(max_length=200) #A CHANGER EN DATE
-    declaration_organisation_appartenance = models.BooleanField(null=True)
-    declaration_tiers = models.BooleanField(null=True)
+    declaration_organisation_appartenance = models.BooleanField(null=True,blank=True)
+    declaration_tiers = models.BooleanField(null=True,blank=True)
     denomination = models.CharField(max_length=200)
     identifiant_national = models.CharField(max_length=200)
-    activites_publiees =  models.BooleanField(null=True)
+    activites_publiees =  models.BooleanField(null=True,blank=True)
     page_facebook =models.CharField(max_length=200)
     page_linkedin=models.CharField(max_length=200)
     page_twitter=models.CharField(max_length=200)
@@ -29,7 +29,7 @@ class Dirigeants(models.Model):
     fonction_dirigeant=models.CharField(max_length=200)
     nom_dirigeant=models.CharField(max_length=200)
     prenom_dirigeant=models.CharField(max_length=200)
-    representants_id = models.ForeignKey(Info_generales,on_delete=models.CASCADE)
+    representants_id = models.ForeignKey(Informations_generales,on_delete=models.CASCADE)
     nom_prenom_dirigeant=models.CharField(max_length=200)
 
 class Collaborateurs(models.Model):
@@ -37,28 +37,28 @@ class Collaborateurs(models.Model):
     fonction_collaborateur=models.CharField(max_length=200)
     nom_collaborateur=models.CharField(max_length=200)
     prenom_collaborateur=models.CharField(max_length=200)
-    representants_id = models.ForeignKey(Info_generales,on_delete=models.CASCADE)
+    representants_id = models.ForeignKey(Informations_generales,on_delete=models.CASCADE)
     nom_prenom_collaborateur=models.CharField(max_length=200)
 
 class Clients(models.Model):
-    representants_id = models.ForeignKey(Info_generales,on_delete=models.CASCADE)
+    representants_id = models.ForeignKey(Informations_generales,on_delete=models.CASCADE)
     denomination_client=models.CharField(max_length=200)
     identifiant_national_client=models.CharField(max_length=200)
     type_identifiant_national_client=models.CharField(max_length=200)
 
 class Affiliations(models.Model):
-    representants_id = models.ForeignKey(Info_generales,on_delete=models.CASCADE)
+    representants_id = models.ForeignKey(Informations_generales,on_delete=models.CASCADE)
     denomination_affiliation=models.CharField(max_length=200)
     identifiant_national_affiliation=models.CharField(max_length=200)
     type_identifiant_national_affiliation=models.CharField(max_length=200)
 
-class Niveaux_interventions(models.Model):
+class Niveaux_intervention(models.Model):
     niveau_intervention=models.CharField(max_length=200)
-    representants_id = models.ForeignKey(Info_generales,on_delete=models.CASCADE)
+    representants_id = models.ForeignKey(Informations_generales,on_delete=models.CASCADE)
 
 class Exercices(models.Model):
     exercices_id = models.IntegerField(primary_key=True)
-    representants_id = models.ForeignKey(Info_generales,on_delete=models.CASCADE)
+    representants_id = models.ForeignKey(Informations_generales,on_delete=models.CASCADE)
     date_debut = models.CharField(max_length=200) #A CHANGER EN DATE
     date_fin = models.CharField(max_length=200) #A CHANGER EN DATE
     exercice_sans_activite=models.BooleanField()
@@ -83,7 +83,7 @@ class Objets_activites(models.Model):
     identifiant_fiche = models.CharField(max_length=200)
     objet_activite= models.CharField(max_length=200)
 
-class Domaines_interventions(models.Model):
+class Domaines_intervention(models.Model):
     domaines_intervention_actions_menees=models.CharField(max_length=200)
     activite_id = models.ForeignKey(Objets_activites,on_delete=models.CASCADE)
 
