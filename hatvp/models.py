@@ -8,11 +8,11 @@ class Info_generales(models.Model):
     code_postal = models.CharField(max_length=200)
     derniere_publication_activite = models.CharField(max_length=200) #A CHANGER EN DATE
     date_premiere_publication = models.CharField(max_length=200) #A CHANGER EN DATE
-    declaration_organisation_appartenance = models.BooleanField(null=True)
-    declaration_tiers = models.BooleanField(null=True)
+    declaration_organisation_appartenance = models.BooleanField(null=True,blank=True)
+    declaration_tiers = models.BooleanField(null=True,blank=True)
     denomination = models.CharField(max_length=200)
     identifiant_national = models.CharField(max_length=200)
-    activites_publiees =  models.BooleanField(null=True)
+    activites_publiees =  models.BooleanField(null=True,blank=True)
     page_facebook =models.CharField(max_length=200)
     page_linkedin=models.CharField(max_length=200)
     page_twitter=models.CharField(max_length=200)
