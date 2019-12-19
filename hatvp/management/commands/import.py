@@ -110,7 +110,6 @@ class Command(BaseCommand):
                 print("CHAMPS SONT  : {}".format(allChamps))
                 with open('fichierCsv/'+fichier,encoding="utf8") as csvfile:
                     print("--------------- DEBUT remplissage FICHIER {}  DANS reader test ---------------".format(fichier))
-                    print()
                     #read_file = reader(fichier)
                     #apps_data = list(read_file)
                     #rowcount = len(apps_data) #which incudes header row
@@ -125,7 +124,6 @@ class Command(BaseCommand):
                         #print("LECTURE LIGNE : {}".format(i))
                         for tab in range(len(allChamps)):
                             i = i+1
-                            print("LECTURE LIGNE : {}".format(i))
                             type_variable=objetNew._meta.get_field(allChamps[tab]) #Nom du champs
                             if isinstance(type_variable,models.DateTimeField):
                                 #print("AFFICHAGE LIGNEsssssssss : {}".format(row[tab]))
@@ -175,9 +173,8 @@ class Command(BaseCommand):
         listModel,fichierTrie = trieFichierModeles(listFichier)
         classModels = str_to_class(listModel) # Transformations des strings models en classe
         #print(listTrie)
-        destroyData(classModels) #Destruction des datas de toutes les bases de donnes
+        #destroyData(classModels) #Destruction des datas de toutes les bases de donnes
         dicoModels = recupChampList(classModels)
         #print(dicoModels.keys())
         #print(listInfoModels)
         reader_test(fichierTrie,dicoModels)
-s

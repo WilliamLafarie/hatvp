@@ -1,7 +1,7 @@
 # serializers.py
 from rest_framework import serializers
 
-from .models import Informations_generales
+from .models import *
 
 
 class InfoSerializer(serializers.HyperlinkedModelSerializer):
@@ -28,4 +28,13 @@ class InfoSerializer(serializers.HyperlinkedModelSerializer):
             'type_identifiant_national',
             'ville',
             'label_categorie_organisation'
+        )
+        model = Dirigeants
+        fields = (
+            'civilite_dirigeant'
+            'fonction_dirigeant'
+            'nom_dirigeant'
+            'prenom_dirigean'
+            'representants_id'
+            'nom_prenom_dirigeant'
         )
