@@ -105,10 +105,10 @@ class Actions_menees(models.Model):
     action_menee= models.CharField(null=True,blank=True,max_length=200)
     action_representation_interet_id = models.ForeignKey(Observations,on_delete=models.CASCADE)
     action_menee_autre= models.CharField(null=True,blank=True,max_length=200)
-    other1= models.CharField(null=True,blank=True,max_length=200)
-    other2= models.CharField(null=True,blank=True,max_length=200)
-    other3= models.CharField(null=True,blank=True,max_length=200)
-    other4= models.CharField(null=True,blank=True,max_length=200)
+   # other1= models.CharField(null=True,blank=True,max_length=200)
+    #other2= models.CharField(null=True,blank=True,max_length=200)
+    #other3= models.CharField(null=True,blank=True,max_length=200)
+    #other4= models.CharField(null=True,blank=True,max_length=200)
 
 class Secteur_activites(models.Model):
     secteur_activite = models.CharField(null=True,blank=True,max_length=200)
