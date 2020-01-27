@@ -29,3 +29,16 @@ class InfoSerializer(serializers.HyperlinkedModelSerializer):
             'ville',
             'label_categorie_organisation'
         )
+
+
+class DirigeantsSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Dirigeants
+        fields = (
+            'civilite_dirigeant',
+            'fonction_dirigeant',
+            'nom_dirigeant',
+            'prenom_dirigeant',
+            'representants_id',
+            'nom_prenom_dirigeant'
+        )
