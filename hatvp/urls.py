@@ -2,6 +2,9 @@ from django.urls import include, path
 from rest_framework import routers
 from . import views
 
+
+# Register all the API's route
+
 router = routers.DefaultRouter()
 router.register(r'Informations_generales', views.InfoViewSet)
 router.register(r'Dirigeants', views.DirigeantsViewSet)
@@ -18,7 +21,6 @@ router.register(r'Beneficiaires', views.BeneficiairesViewSet)
 router.register(r'Actions_menees', views.Actions_meneesViewSet)
 router.register(r'Secteur_activites', views.Secteur_activitesViewSet)
 
-#router.register(r'Collaborateurs', views.InfoViewSet)
 
 urlpatterns = [
     path('', views.index, name='home'),

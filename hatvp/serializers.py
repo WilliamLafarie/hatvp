@@ -3,6 +3,7 @@ from rest_framework import serializers
 
 from .models import *
 
+# Each entity has a serializer
 
 class InfoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -43,6 +44,7 @@ class DirigeantsSerializer(serializers.HyperlinkedModelSerializer):
             'nom_prenom_dirigeant'
         )
 
+
 class CollaborateursSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Collaborateurs
@@ -55,6 +57,7 @@ class CollaborateursSerializer(serializers.HyperlinkedModelSerializer):
             'nom_prenom_collaborateur'
         )
 
+
 class ClientsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Clients
@@ -64,6 +67,7 @@ class ClientsSerializer(serializers.HyperlinkedModelSerializer):
             'identifiant_national_client',
             'type_identifiant_national_client',
         )
+
 
 class AffiliationsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -75,6 +79,7 @@ class AffiliationsSerializer(serializers.HyperlinkedModelSerializer):
             'type_identifiant_national_affiliation',
         )
 
+
 class Niveaux_interventionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Niveaux_intervention
@@ -82,6 +87,7 @@ class Niveaux_interventionSerializer(serializers.HyperlinkedModelSerializer):
             'niveau_intervention',
             'representants_id',
         )
+
 
 class ExercicesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -107,6 +113,7 @@ class ExercicesSerializer(serializers.HyperlinkedModelSerializer):
             'ca_sup',
         )
 
+
 class Objets_activitesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Objets_activites
@@ -127,6 +134,7 @@ class Domaines_interventionSerializer(serializers.HyperlinkedModelSerializer):
             'activite_id',
         )
 
+
 class ObservationsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Observations
@@ -136,6 +144,7 @@ class ObservationsSerializer(serializers.HyperlinkedModelSerializer):
             'observation',
         )
 
+
 class Decisions_concerneesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Decisions_concernees
@@ -143,6 +152,7 @@ class Decisions_concerneesSerializer(serializers.HyperlinkedModelSerializer):
             'decision_concernee',
             'action_representation_interet_id',
         )
+
 
 class BeneficiairesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -153,6 +163,7 @@ class BeneficiairesSerializer(serializers.HyperlinkedModelSerializer):
             'action_menee_en_propre',
         )
 
+
 class Actions_meneesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Actions_menees
@@ -161,6 +172,7 @@ class Actions_meneesSerializer(serializers.HyperlinkedModelSerializer):
             'action_representation_interet_id',
             'action_menee_autre',
         )
+
 
 class Secteur_activitesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
