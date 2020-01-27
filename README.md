@@ -32,6 +32,21 @@ pip install -r requirements.txt
 #Run Django App
 python manage.py runserver
 ```
+## Setting up the project
+```bash
+# Make your fist migration
+python manage.py migrate
+
+# Create an admin account 
+python manage.py createsuperuser
+
+# Populate the database (it may take some time)
+python manage.py import
+
+# And then run Django App
+python manage.py runserver
+```
+
 
 ## Wiki
 
