@@ -26,6 +26,7 @@ hatvp/__pycache__/
 .history
 
 # If you are using PyCharm #
+
 .idea
 .idea/**/workspace.xml
 .idea/**/tasks.xml

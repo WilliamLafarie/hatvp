@@ -1,59 +1,56 @@
 from django.db import models
-
-# Create your models here.
-
 class Informations_generales(models.Model):
     representants_id = models.IntegerField(primary_key=True)
-    adresse = models.CharField(null=True,blank=True,max_length=200)
-    code_postal = models.CharField(null=True,blank=True,max_length=200)
+    adresse = models.CharField(null=True,blank=True,max_length=60)
+    code_postal = models.CharField(null=True,blank=True,max_length=60)
     derniere_publication_activite = models.DateTimeField(null=True,blank=True) #A CHANGER EN DATE models.DateTimeField(null=True,blank=True,null=True,blank=True)
     date_premiere_publication = models.DateTimeField(null=True,blank=True) #A CHANGER EN DATE
     declaration_organisation_appartenance = models.BooleanField(null=True,blank=True)
     declaration_tiers = models.BooleanField(null=True,blank=True)
-    denomination = models.CharField(null=True,blank=True,max_length=200)
-    identifiant_national = models.CharField(null=True,blank=True,max_length=200)
+    denomination = models.CharField(null=True,blank=True,max_length=60)
+    identifiant_national = models.CharField(null=True,blank=True,max_length=15)
     activites_publiees =  models.BooleanField(null=True,blank=True)
-    page_facebook =models.CharField(null=True,blank=True,max_length=200)
-    page_linkedin=models.CharField(null=True,blank=True,max_length=200)
-    page_twitter=models.CharField(null=True,blank=True,max_length=200)
-    site_web=models.CharField(null=True,blank=True,max_length=200)
-    nom_usage_HATVP=models.CharField(null=True,blank=True,max_length=200)
-    pays=models.CharField(null=True,blank=True,max_length=200)
-    sigle_HATVP=models.CharField(null=True,blank=True,max_length=200)
-    type_identifiant_national=models.CharField(null=True,blank=True,max_length=200)
-    ville=models.CharField(null=True,blank=True,max_length=200)
-    label_categorie_organisation=models.CharField(null=True,blank=True,max_length=200)
+    page_facebook =models.CharField(null=True,blank=True,max_length=60)
+    page_linkedin=models.CharField(null=True,blank=True,max_length=60)
+    page_twitter=models.CharField(null=True,blank=True,max_length=60)
+    site_web=models.CharField(null=True,blank=True,max_length=60)
+    nom_usage_HATVP=models.CharField(null=True,blank=True,max_length=150)
+    pays=models.CharField(null=True,blank=True,max_length=60)
+    sigle_HATVP=models.CharField(null=True,blank=True,max_length=15)
+    type_identifiant_national=models.CharField(null=True,blank=True,max_length=60)
+    ville=models.CharField(null=True,blank=True,max_length=60)
+    label_categorie_organisation=models.CharField(null=True,blank=True,max_length=50)
 
 class Dirigeants(models.Model):
-    civilite_dirigeant=models.CharField(null=True,blank=True,max_length=200)
-    fonction_dirigeant=models.CharField(null=True,blank=True,max_length=200)
-    nom_dirigeant=models.CharField(null=True,blank=True,max_length=200)
-    prenom_dirigeant=models.CharField(null=True,blank=True,max_length=200)
+    civilite_dirigeant=models.CharField(null=True,blank=True,max_length=5)
+    fonction_dirigeant=models.CharField(null=True,blank=True,max_length=70)
+    nom_dirigeant=models.CharField(null=True,blank=True,max_length=40)
+    prenom_dirigeant=models.CharField(null=True,blank=True,max_length=40)
     representants_id = models.ForeignKey(Informations_generales,on_delete=models.CASCADE)
-    nom_prenom_dirigeant=models.CharField(null=True,blank=True,max_length=200)
+    nom_prenom_dirigeant=models.CharField(null=True,blank=True,max_length=40)
 
 class Collaborateurs(models.Model):
-    civilite_collaborateur=models.CharField(null=True,blank=True,max_length=200)
-    fonction_collaborateur=models.CharField(null=True,blank=True,max_length=200)
-    nom_collaborateur=models.CharField(null=True,blank=True,max_length=200)
-    prenom_collaborateur=models.CharField(null=True,blank=True,max_length=200)
+    civilite_collaborateur=models.CharField(null=True,blank=True,max_length=5)
+    fonction_collaborateur=models.CharField(null=True,blank=True,max_length=70)
+    nom_collaborateur=models.CharField(null=True,blank=True,max_length=40)
+    prenom_collaborateur=models.CharField(null=True,blank=True,max_length=40)
     representants_id = models.ForeignKey(Informations_generales,on_delete=models.CASCADE)
-    nom_prenom_collaborateur=models.CharField(null=True,blank=True,max_length=200)
+    nom_prenom_collaborateur=models.CharField(null=True,blank=True,max_length=40)
 
 class Clients(models.Model):
     representants_id = models.ForeignKey(Informations_generales,on_delete=models.CASCADE)
-    denomination_client=models.CharField(null=True,blank=True,max_length=200)
-    identifiant_national_client=models.CharField(null=True,blank=True,max_length=200)
-    type_identifiant_national_client=models.CharField(null=True,blank=True,max_length=200)
+    denomination_client=models.CharField(null=True,blank=True,max_length=40)
+    identifiant_national_client=models.CharField(null=True,blank=True,max_length=20)
+    type_identifiant_national_client=models.CharField(null=True,blank=True,max_length=20)
 
 class Affiliations(models.Model):
     representants_id = models.ForeignKey(Informations_generales,on_delete=models.CASCADE)
-    denomination_affiliation=models.CharField(null=True,blank=True,max_length=200)
-    identifiant_national_affiliation=models.CharField(null=True,blank=True,max_length=200)
-    type_identifiant_national_affiliation=models.CharField(null=True,blank=True,max_length=200)
+    denomination_affiliation=models.CharField(null=True,blank=True,max_length=5)
+    identifiant_national_affiliation=models.CharField(null=True,blank=True,max_length=20)
+    type_identifiant_national_affiliation=models.CharField(null=True,blank=True,max_length=20)
 
 class Niveaux_intervention(models.Model):
-    niveau_intervention=models.CharField(null=True,blank=True,max_length=200)
+    niveau_intervention=models.CharField(null=True,blank=True,max_length=20)
     representants_id = models.ForeignKey(Informations_generales,on_delete=models.CASCADE)
 
 class Exercices(models.Model):
@@ -66,9 +63,9 @@ class Exercices(models.Model):
     declaration_incomplete=models.BooleanField(null=True,blank=True)
     date_publication = models.DateTimeField(null=True,blank=True) #A CHANGER EN DATE
     exercice_sans_CA=models.BooleanField(null=True,blank=True)
-    montant_depense=models.CharField(null=True,blank=True,max_length=200)
-    nombre_salaries=models.CharField(null=True,blank=True,max_length=200)
-    chiffre_affaires = models.CharField(null=True,blank=True,max_length=200)
+    montant_depense=models.CharField(null=True,blank=True,max_length=50)
+    nombre_salaries=models.CharField(null=True,blank=True,max_length=50)
+    chiffre_affaires = models.CharField(null=True,blank=True,max_length=50)
     annee_debut= models.IntegerField(null=True,blank=True)
     annee_fin= models.IntegerField(null=True,blank=True)
     montant_depense_inf= models.IntegerField(null=True,blank=True)
@@ -80,36 +77,41 @@ class Objets_activites(models.Model):
     activite_id = models.IntegerField(primary_key=True)
     exercices_id = models.ForeignKey(Exercices,on_delete=models.CASCADE)
     date_publication_activite =models.DateTimeField(null=True,blank=True) #A CHANGER EN DATE
-    identifiant_fiche = models.CharField(null=True,blank=True,max_length=200)
+    identifiant_fiche = models.CharField(null=True,blank=True,max_length=20)
     objet_activite= models.CharField(null=True,blank=True,max_length=200)
 
 class Domaines_intervention(models.Model):
-    domaines_intervention_actions_menees=models.CharField(null=True,blank=True,max_length=200)
+    domaines_intervention_actions_menees=models.CharField(null=True,blank=True,max_length=50)
     activite_id = models.ForeignKey(Objets_activites,on_delete=models.CASCADE)
 
 class Observations(models.Model):
     action_representation_interet_id = models.IntegerField(primary_key=True)
     activite_id = models.ForeignKey(Objets_activites,on_delete=models.CASCADE)
-    observation = models.CharField(null=True,blank=True,max_length=200)
+    observation = models.CharField(null=True,blank=True,max_length=250)
 
 class Decisions_concernees(models.Model):
-    decision_concernee = models.CharField(null=True,blank=True,max_length=200)
+    decision_concernee = models.CharField(blank=True,max_length=60,null=True)
     action_representation_interet_id = models.ForeignKey(Observations,on_delete=models.CASCADE)
 
 class Beneficiaires(models.Model):
-    beneficiaire_action_menee = models.CharField(null=True,blank=True,max_length=200)
+    beneficiaire_action_menee = models.CharField(blank=True,max_length=100,null=True)
     action_representation_interet_id = models.ForeignKey(Observations,on_delete=models.CASCADE)
     action_menee_en_propre = models.IntegerField(null=True,blank=True,)
 
 class Actions_menees(models.Model):
-    action_menee= models.CharField(null=True,blank=True,max_length=200)
+    action_menee= models.CharField(blank=True,max_length=100,null=True)
     action_representation_interet_id = models.ForeignKey(Observations,on_delete=models.CASCADE)
-    action_menee_autre= models.CharField(null=True,blank=True,max_length=200)
-    other1= models.CharField(null=True,blank=True,max_length=200)
-    other2= models.CharField(null=True,blank=True,max_length=200)
-    other3= models.CharField(null=True,blank=True,max_length=200)
-    other4= models.CharField(null=True,blank=True,max_length=200)
+    action_menee_autre= models.CharField(null=True,blank=True,max_length=100)
+   # other1= models.CharField(blank=True,max_length=200)
+    #other2= models.CharField(blank=True,max_length=200)
+    #other3= models.CharField(blank=True,max_length=200)
+    #other4= models.CharField(blank=True,max_length=200)
 
 class Secteur_activites(models.Model):
     secteur_activite = models.CharField(null=True,blank=True,max_length=200)
     representants_id = models.ForeignKey(Informations_generales,on_delete=models.CASCADE)
+
+
+
+
+
