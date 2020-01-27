@@ -29,12 +29,3 @@ class InfoSerializer(serializers.HyperlinkedModelSerializer):
             'ville',
             'label_categorie_organisation'
         )
-        model = Dirigeants
-        fields = (
-            'civilite_dirigeant'
-            'fonction_dirigeant'
-            'nom_dirigeant'
-            'prenom_dirigean'
-            'representants_id'
-            'nom_prenom_dirigeant'
-        )
