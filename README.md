@@ -2,6 +2,12 @@
 
 Project around [hatvp](https://www.hatvp.fr/)'s datas: [Download the data](https://www.hatvp.fr/agora/opendata/csv/Vues_Fusionnees.zip)
 
+## Prerequisites
+
+* A PostregreSQL database
+* Python 3
+* Pyenv
+
 ## Installation 
 After cloning the project repository, you have to create your **virtual environment**
 ### Ubuntu
@@ -33,10 +39,25 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 ## Setting up the project
-```bash
-# Make your fist migration
-python manage.py migrate
 
+#### First step: create & fill your .env file
+
+```bash
+# Create a .env file at the root of the project
+touch .env
+```
+
+```bash
+# Your .env file
+
+DB_NAME = [your_database_name]
+DB_USER = [your_database_username]
+DB_PASS = [your_database_password]
+```
+
+#### Second step: import the database
+
+```bash
 # Create an admin account 
 python manage.py createsuperuser
 

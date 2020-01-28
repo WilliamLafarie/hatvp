@@ -13,9 +13,11 @@ venv.bak/
 *.pyc
 __pycache__
 db.sqlite3
+db.json
 media
 hatvp_API/__pycache__/
 hatvp/__pycache__/
+hatvp/management/commands/__pycache__/
 
 # Visual Studio Code #
 .vscode/*

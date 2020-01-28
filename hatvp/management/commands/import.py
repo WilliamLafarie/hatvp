@@ -107,7 +107,7 @@ class Command(BaseCommand):
                 allChamps = dicoModels[classModels[nbFichier]]
                 #print("L'INDICE EST : {}".format(nbFichier))
                 #print('OBJET UTILISE : {}'.format(objetNew))
-                print("CHAMPS SONT  : {}".format(allChamps))
+                #print("CHAMPS SONT  : {}".format(allChamps))
                 with open('fichierCsv/'+fichier,encoding="utf8") as csvfile:
                     print("--------------- DEBUT remplissage FICHIER {}  DANS reader test ---------------".format(fichier))
                     #read_file = reader(fichier)
@@ -166,7 +166,7 @@ class Command(BaseCommand):
         #print(listvide)
         fichier=[]
         nouvelleListe=[]
-        listFichier = os.listdir('./fichierCSV')
+        listFichier = os.listdir('./fichierCsv')
         #print(listFichier)
         dicoModels={}
         #listModel,fichierTrie = trieFichierModel(listFichier) #Recuperation des noms des models par ordre
