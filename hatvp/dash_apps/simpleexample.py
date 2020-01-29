@@ -10,7 +10,7 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 # Nombre de lignes du tableau
 PAGE_SIZE = 20
 
-app = DjangoDash('ptdr')
+app = DjangoDash('SimpleExample')
 
 app.layout = html.Div([
     dcc.Markdown('''

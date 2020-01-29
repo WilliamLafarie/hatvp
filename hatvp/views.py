@@ -80,5 +80,5 @@ def index(request):
     return render(request, 'hatvp/index.html')
 
 
-def lol(request):
+def dashboard_home(request):
     return render(request, 'hatvp/dash.html')

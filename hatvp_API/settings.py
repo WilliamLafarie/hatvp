@@ -34,18 +34,14 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'psycopg2',
     'hatvp',
-<<<<<<< HEAD
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
-=======
     'rest_framework',
->>>>>>> ec7a6ffe673cf6c445e8e12de95b41e096faf68d
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_plotly_dash.apps.DjangoPlotlyDashConfig',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +127,21 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_URL = '/static/'
+
+CRISPY_TEMPLATE_PACK = 'bootstap4'
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django_plotly_dash.finders.DashAssetFinder',
+    'django_plotly_dash.finders.DashComponentFinder'
+]
+
+PLOTLY_COMPONENTS = [
+
+    'dash_core_components',
+    'dash_html_components',
+    'dash_renderer',
+
+    'dpd_components'
+]

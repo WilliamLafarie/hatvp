@@ -1,15 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-{%load plotly_dash%}
+{%  extends 'hatvp/dashboard.html' %}
+{%  load static %}
 
-{%plotly_app name="ptdr"%}
-</body>
-</html>
+{%  block content %}
+{% load plotly_dash %}
+
+   <div class="{% plotly_class name='SimpleExample' %} card" style="height: 100%; width: 100%">
+    {% plotly_app name='SimpleExample' ratio=0.45 %}
+    </div>
+{%  endblock%}

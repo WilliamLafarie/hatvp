@@ -18,6 +18,7 @@ media
 hatvp_API/__pycache__/
 hatvp/__pycache__/
 hatvp/management/commands/__pycache__/
+static/hatvp/vendor/
 
 # Visual Studio Code #
 .vscode/*
