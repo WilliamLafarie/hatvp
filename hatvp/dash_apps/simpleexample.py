@@ -8,6 +8,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 import os
 from functools import reduce
+import plotly.graph_objs as go
 
 DATABASES = {
     'default': {
@@ -44,7 +45,6 @@ df_2 = df2.rename(columns={'id': 'ID', 'civilite_dirigeant': 'Civilité du dirig
 
 df3 = pd.read_sql_table('hatvp_collaborateurs', engine)
 df_3 = df3.rename(columns={'id': 'ID', 'civilite_collaborateur': 'Civilité du collaborateur', 'fonction_collaborateur': 'Fonction du collaborateur', 'nom_collaborateur': 'Nom du collaborateur', 'nom_prenom_collaborateur': 'Nom et prénom du collaborateur', 'prenom_collaborateur': 'Prénom du collaborateur', 'representants_id_id': 'ID du représentant'})
-
 
 df4 = pd.read_sql_table('hatvp_clients', engine)
 df_4 = df4.rename(columns={'id': 'ID', 'denomination_client': 'Dénomination du client', 'identifiant_national_client': 'Identifiant National du client', 'representants_id_id': 'ID du représentant', 'type_identifiant_national_client': 'Type d\'identifiant national du client'})
