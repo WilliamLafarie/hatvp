@@ -81,4 +81,61 @@ def index(request):
 
 
 def dashboard_home(request):
-    return render(request, 'hatvp/dash.html')
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'SimpleExample', 'titlename': "Dashboard"})
+
+
+def dashboard_informations(request):
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'InformationsGenerales', 'titlename': "Informations générales"})
+
+
+def dashboard_dirigeants(request):
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'Dirigeants', 'titlename': "Dirigeants"})
+
+
+def dashboard_collaborateurs(request):
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'Collaborateurs', 'titlename': "Collaborateurs"})
+
+def dashboard_clients(request):
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'Clients', 'titlename': "Clients"})
+
+
+def dashboard_affiliations(request):
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'Affiliations', 'titlename': "Affiliations"})
+
+
+def dashboard_niveaux_interventions(request):
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'NiveauxInterventions', 'titlename': "Niveaux d'interventions"})
+
+
+def dashboard_exercices(request):
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'Exercices', 'titlename': "Exercices"})
+
+
+def dashboard_objets_activites(request):
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'ObjetsActivites', 'titlename': "Objets activites"})
+
+
+def dashboard_domaines_interventions(request):
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'DomainesInterventions', 'titlename': "Domaines d'interventions"})
+
+def dashboard_observations(request):
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'Observations', 'titlename': "Observations"})
+
+def dashboard_decisions_conernees(request):
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'DecisionsConcernees', 'titlename': "Decisions Concernees"})
+
+
+def dashboard_beneficiaires(request):
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'Beneficiaires', 'titlename': "Bénéficiaires"})
+
+
+def dashboard_actions_menees(request):
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'ActionsMenees', 'titlename': "Actions Menées"})
+
+
+def dashboard_secteur_activite(request):
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'SecteurActivite', 'titlename': "Secteur d'activité"})
+
+
+def dashboard_ministeres(request):
+    return render(request, 'hatvp/dash.html', {'djangoApp': 'Ministeres', 'titlename': "Ministères"})

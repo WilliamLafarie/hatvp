@@ -1,10 +1,12 @@
 {%  extends 'hatvp/dashboard.html' %}
 {%  load static %}
 
+{%  block title %}{{ titlename }} {% endblock %}
+
 {%  block content %}
 {% load plotly_dash %}
 
-   <div class="{% plotly_class name='SimpleExample' %} card" style="height: 100%; width: 100%">
-    {% plotly_app name='SimpleExample' ratio=0.45 %}
+   <div class="{% plotly_class name=djangoApp %} card" style="height: 100%; width: 100%">
+    {% plotly_app name=djangoApp ratio=0.45 %}
     </div>
 {%  endblock%}
