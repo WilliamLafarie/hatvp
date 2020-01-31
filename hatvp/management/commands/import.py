@@ -26,6 +26,7 @@ class Command(BaseCommand):
                 return datetime.strptime(str(value),'%d/%m/%Y')
                 pass
 
+        """
         def trieFichierModel(listFichier):
             i=0
             compteur1=1
@@ -46,27 +47,28 @@ class Command(BaseCommand):
                     i=1
                 else:
                     compteur2+=1
+        """
 
         def trieFichierModeles(listFichier):
-            i=0
-            compteur1=0
-            compteur2=0
             listFichierTrie=[]
             fileInOrder=[]
+            i=0
             for nbFichier,lFichier in enumerate(listFichier):
                 for nbElem in range(len(listFichier)):
-                    fileToTest=listFichier[nbElem].split("_",1)
+                    fileToTest=listFichier[nbElem].split("_",1)  
                     modelListInter = fileToTest[1].split('.')
-                    if(nbFichier== int(fileToTest[0])):
+                    if(nbFichier == int(fileToTest[0])):
                         fileInOrder.append(listFichier[nbElem])
                         listFichierTrie.append(modelListInter[0])
-            print(fileInOrder)
+                
             return listFichierTrie,fileInOrder
             
 
         def destroyData(listModels):
+            print("------- Debut destruction Data -------")
             for lenList in range(len(listModels)):
                 listModels[lenList].objects.all().delete()
+            print("------- Fin destruction Data -------")
 
         '''
         class Foobar:
@@ -85,7 +87,6 @@ class Command(BaseCommand):
             dico = {}
             for nbModels in range(len(listModels)):
                 listInfo=listModels[nbModels]._meta.get_fields()
-                #print(listIlistInfo)
                 listIlistInfo=[]
                 for nbInfo in range(len(listInfo)):
                     if(hasattr(listInfo[nbInfo],'attname')):
@@ -154,8 +155,7 @@ class Command(BaseCommand):
                                 row[tab] = Observations.objects.get(action_representation_interet_id = row[tab])
                             '''
                             #print('OBJECT UTILISE  {}'.format(objetNew))   
-                            setattr(objetNew, allChamps[tab],row[tab])
-                            
+                            setattr(objetNew, allChamps[tab],row[tab])     
                         objetNew.save()
                     # print(objetNew)
                 csvfile.close()
@@ -171,10 +171,13 @@ class Command(BaseCommand):
         dicoModels={}
         #listModel,fichierTrie = trieFichierModel(listFichier) #Recuperation des noms des models par ordre
         listModel,fichierTrie = trieFichierModeles(listFichier)
+        print("listModel : {}".format(listModel))
+        print("fichierTrie :  {}".format(fichierTrie))
         classModels = str_to_class(listModel) # Transformations des strings models en classe
         #print(listTrie)
-        #destroyData(classModels) #Destruction des datas de toutes les bases de donnes
+        destroyData(classModels) #Destruction des datas de toutes les bases de donnes
         dicoModels = recupChampList(classModels)
         #print(dicoModels.keys())
         #print(listInfoModels)
         reader_test(fichierTrie,dicoModels)
+        
