@@ -26,7 +26,8 @@ class Command(BaseCommand):
                 return datetime.strptime(str(value),'%d/%m/%Y')
                 pass
 
-        """def trieFichierModel(listFichier):
+        """
+        def trieFichierModel(listFichier):
             i=0
             compteur1=1
             compteur2=0
@@ -45,7 +46,8 @@ class Command(BaseCommand):
                     return listFichierTrie,fileInOrder
                     i=1
                 else:
-                    compteur2+=1"""
+                    compteur2+=1
+        """
 
         def trieFichierModeles(listFichier):
             listFichierTrie=[]
@@ -63,8 +65,10 @@ class Command(BaseCommand):
             
 
         def destroyData(listModels):
+            print("------- Debut destruction Data -------")
             for lenList in range(len(listModels)):
                 listModels[lenList].objects.all().delete()
+            print("------- Fin destruction Data -------")
 
         '''
         class Foobar:
@@ -151,8 +155,7 @@ class Command(BaseCommand):
                                 row[tab] = Observations.objects.get(action_representation_interet_id = row[tab])
                             '''
                             #print('OBJECT UTILISE  {}'.format(objetNew))   
-                            setattr(objetNew, allChamps[tab],row[tab])
-                            
+                            setattr(objetNew, allChamps[tab],row[tab])     
                         objetNew.save()
                     # print(objetNew)
                 csvfile.close()

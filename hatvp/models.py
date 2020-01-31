@@ -111,9 +111,9 @@ class Secteur_activites(models.Model):
 
 class Ministeres_aai_api(models.Model):
     action_representation_interet_id = models.ForeignKey(Observations,on_delete=models.CASCADE)
-    responsable_public = models.CharField(null=True,blank=True,max_length=210)
-    departement_ministeriel = models.CharField(null=True,blank=True,max_length=210)
-    responsable_public_ou_dpt_ministeriel_autre =models.CharField(null=True,blank=True,max_length=210)
+    responsable_public = models.CharField(null=True,blank=True,max_length=600)
+    departement_ministeriel = models.CharField(null=True,blank=True,max_length=120)
+    responsable_public_ou_dpt_ministeriel_autre =models.CharField(null=True,blank=True,max_length=200)
 
 
 
